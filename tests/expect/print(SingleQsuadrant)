@@ -1,0 +1,24 @@
+
+Welcome to the ItemTree demo
+Enter any one of the following commands:
+   Q to quit
+   H to display this menu
+   V to toggle verbose mode (prompts/messages)
+   N to create a new tree (deletes old)
+   D to delete the current tree
+   P to print items from the tree
+   I to insert new elements in the tree
+   R to remove elements from the tree
+   F to find elements in the tree
+
+Enter a command (QHNDPFVIR: H is help)> Enter a command (QHNDPFVIR: H is help)> Enter a single line of text for the new item title: >Enter a single line of text for the new item description: >Next provide the address of the item's lower left corner
+Enter the quaternary address or * for global
+Next provide the address of the item's upper right corner
+Enter the quaternary address or * for global
+Item inserted in quadrant 111
+Enter a command (QHNDPFVIR: H is help)> Single quadrant (Q) or entire subtree (T)?> Enter the quaternary address or * for global
+
+Printing quad from "111"
+111::111(111:1110000000,1113333333)
+Enter a command (QHNDPFVIR: H is help)> Deallocating item tree and shutting down
+

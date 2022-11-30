@@ -1,0 +1,56 @@
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700  1) #ifndef ITEM_H
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700  2) #define ITEM_H
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700  3) #include <string>
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700  4) 
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700  5) // Items consist of titles, description strings, and address strings
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700  6) // identifying the (quaternary) addresses of the lower left and upper right
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700  7) // corners the item occupies.
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700  8) //
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700  9) // For instance, we might use an item to describe a sales region for a representative
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 10) //     Item("Fred\'s territory", "Fred is in charge of sales here", "1013", "120")
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 11) //
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 12) // During Item creation, the addresses for the lower left and upper right corners
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 13) //    are padded to full addresses (extreme lower left, upper right) and the
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 14) //    quadrant containing the entire region is also calculated and stored
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 15) // (e.g., if our full addresses were 10 characters long, then for Fred's region
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 16) //  the padded addresses would be 1013000000 and 1200000000, and the enclosing
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 17) //  quadrant would be 1)
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 18) //
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 19) // Items are currently used only for data storage and retrieval, so the only associated
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 20) //    methods are the constructor, destructor, and lookup
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 21) 
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 22) class Item {
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 23)    public:
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 24)       // create item from strings for title, description, lower left and upper right address
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 25)       // (if invalid addresses are given then just the first valid prefix is used, and
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 26)       //  if only partial addresses are given then LL is padded with 0's, UR with 3's)
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 27)       Item(std::string t="", std::string d="", std::string LL="", std::string UR="");
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 28) 
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 29)       // lookup the item's stored string content
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 30)       void lookup(std::string &t, std::string &d,
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 31)                   std::string &LL, std::string &UR, std::string &quad);
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 32) 
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 33)       // print the item's information
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 34)       void print();
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 35) 
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 36)       // does this item overlap (or touch) another
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 37)       bool overlap(Item i);
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 38) 
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 39)      ~Item() { } // no action required by destructor
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 40) 
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 41)    protected:
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 42) 
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 43)       std::string title; // title/identifier (not necessarily unique)
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 44)       std::string desc;  // text description
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 45) 
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 46)       // full address string for lower left and upper right corner of the rectangle
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 47)       //    enclosing the item
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 48)       std::string lowerLeft, upperRight;
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 49) 
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 50)       // item's enclosing quadrant given by longest shared prefix string
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 51)       //    for its lowerleft and upperright addresses
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 52)       std::string quadrant;
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 53) 
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 54) };
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 55) 
+177716b7 (Dave Wessels 2020-09-14 12:17:35 -0700 56) #endif

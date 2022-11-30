@@ -1,0 +1,9 @@
+The demo program has a format defects.
+For the insert items, when user rearch the third step, the program should give
+    Next provide the address of the item`s lower left corner
+    Enter the quatenary address or * for global.
+Instead having this, the program acutally give 
+    Next provide the address of the item`s lower left corner Enter the quaternary address or *
+         for global
+Which cause a format problem.
+

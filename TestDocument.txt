@@ -1,0 +1,244 @@
+This is Paul Shen's test document file. This file include the idea of the test cases, the location of the test cases and how to run the test cases.
+
+========================================================================================
+Part 1: Valid command Test
+
+The focus point of this part is user run the program and ONLY enter one valid command not a bunch of commands.
+
+Test1: Test for quit command
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test1.
+        The expect result should be just a simply turn off message and should turn off the program.
+
+Test2: Test for help command.
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test2.
+	The expect result should be simply display the help menu.
+
+Test3: Test for Verbose mode.
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test3.
+	The expect result should be display nothing and turn on the verbose mode.
+
+Test4:  Test for Create a new tree.
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test4.
+	The expect result should be display nothing and just create a new tree.
+
+Test5: Test for Delete the current tree.
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test5.
+	The expect result should be display nothing and just delete the current tree.
+
+Test6: Test for print Item from the tree.
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test6
+	The expect result should be display a warning message since there is no tree now.
+
+Test7: Test for Insert item to the tree.
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test7
+	The expect result should be display a warning message since there is no tree now and can not insert.
+
+Test8: 	Test for remove item from the tree.
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test8
+	The expect result should be display a warning message since there is no tree now.
+
+Test9: 	Test for find item from the tree.
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test9
+	The expect result should be display a warning message since there is no tree now.
+
+=================================================================================================
+
+Part 2: Invalid Command
+
+The focus point of this part is if the user enter a invlid command.
+
+Test10: Test for user enter a invlid command as the first command for the program
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test10
+	The expect result should be Error message and ask user to enter again.
+
+Test11: Test for user enter a invlid command as the second command for the program
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test11
+	The expect result should be Error message and ask user to enter again.
+
+==========================================================================
+
+Part 3: Duplicate command.
+
+The focus point of this part is if the user enter several command at one time.
+
+Test12: Test for user enter two valid commands at the same time
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test12
+	The expect result should be the program seperactor these two commands and run each of the command.
+
+Test13: Test for user enter two invalid commands at the same time
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test13
+	The expect result should be display the error message twice.
+
+Test14: Test for user enter two commands at the same time, the first one is invalid and the second one is vlid
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test14
+	The expect result should be display the error message first and then run the second command.
+
+===============================================================================
+
+Part 4: Print command.
+
+The focus point of this part is what will print do when in different situations.
+No test case for print with no tree, since it is done in the part1.
+
+Test15: Test for user enter an invliad choose for the print(not Q and T)
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test15
+	The expect result should be display the error message and let user try again.
+
+Test16: Test for user enter and invalid address
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test16
+	The expect result should be display the error message and let the user try again.
+
+Test17: Test for user print a single quadrant
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test17
+	The expect result should be display list of items currently stored in that quadrant like
+		title::description(quadrantaddress:lowerleftaddress:upperrightaddress)
+
+Test18: Test for user print a tree
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test18
+	The expect result should be display all the stuff of the tree, including the subtree.
+
+============================================================================================
+
+Part 5: Find command
+The focus point of this part is what will find do when in different situations.
+No test case for find with no tree, since it is done in the part1.
+
+Test19: Test for user enter an invliad choose for the print(not Q and T)
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test19
+	The expect result should be display an error message and let the user try again
+
+
+Test20: Test for if there is no match for the found for the user enter title(for the quadrant)
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test20
+	The expect result should be display an error message to tell user no matching item found for the title
+
+Test21: Test for if there is matched for the found for the user enter title(for the quadrant)
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test21
+	The expect result should be display the item information, like
+		itle::description(quadrantaddress:lowerleftaddress:upperrightaddress)
+
+Test22: Test for if there is matched for the found for the user enter title(for the tree)
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test22
+	The expect result should be display the item information, like
+		itle::description(quadrantaddress:lowerleftaddress:upperrightaddress)
+
+==============================================================================================
+
+Part 6: Remove command
+
+The focus point of this part is what will remove do when in different situations.
+No test case for remove with no tree, since it is done in the part1.
+
+Test23: Test for if there is no matched for the remove for the user enter title
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test23
+	The expect result should be display an no-match message 
+
+Test24: Test for if there is matched for the remove for the user enter title
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test24
+	The expect result should be display an remove successfully message.
+
+===============================================================================
+
+Part 7: Insert command
+
+The focus point of this part is what will insert do when in different situations.
+No test case for insert with no tree, since it is done in the part1.
+
+Test25: Test for if the user enter an invalid char for the address
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test25
+	The expect result should be display an error message
+
+Test26: Test for if the user enter an too long address
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test26
+	The expect result should be display an error message
+
+Test27: Test for if all the things correctly
+	The test file is in the floder: test/input.
+	The output file is in the floder: test/output.
+        The expect out should be in the floder: test/expect
+	All these three files should name as test27
+	The expect result should be a successful message
+
+=====================================================================
+
+How to run the test cases.
+
+There is a script called test.sh in the floder and this script will put all the test result into test/output floder. 

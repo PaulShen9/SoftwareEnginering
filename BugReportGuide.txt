@@ -1,0 +1,49 @@
+Bug Reporting Guidelines
+------------------------
+These guidelines are modified from the Bugzilla Bug Writing Guidelines:
+    landfill.bugzilla.org/bugzilla-5.0-branch/page.cgi?=bug-writing.html
+The modifications have primarily been made to ensure suitability with
+    the current lab exercise.
+
+Principles
+----------
+ - Be precise
+ - Be clear - explain it so others can reproduce the bug
+ - One bug per report
+ - No bug is too trivial to report - small bugs may hide big bugs
+ - Clearly separate fact from speculation
+
+Reporting a new bug
+-------------------
+(treat this bug as new and unreported for the sake of this lab)
+
+If you can reproduce the bug in a recent build and no-one else appears to
+have reported it, then report the following:
+
+OS: On which operating system did you find it?
+
+Summary: How would you describe the bug, in approximately 60 characters or fewer?
+   A good summary should quickly and uniquely identify a bug report.
+   It should explain the problem, not your suggested solution.
+      Good:  "Cancelling a File Copy dialog crashes File Manager"
+      Bad:   "Software crashes"
+      Bad:   "Browser should work with my web site"
+
+Description: The details of your problem report, including:
+
+   Overview: More detailed restatement of summary.
+
+   Steps to Reproduce: Minimized, easy-to-follow steps that will trigger the bug.
+      Include any special setup steps.
+
+   Actual Results:  What the application did after performing the above steps.
+
+   Expected Results:  What the application should have done, were the bug not present.
+
+   Build Date & Platform: Date and hareware of the build in which you first
+      encountered the bug, e.g. Built 2017-10-30 on Debian 9.2 (Stretch)
+      Note: you can look up information on our platform using the command
+         lsb_release -a
+
+   Additional Information:  Any other useful information.
+

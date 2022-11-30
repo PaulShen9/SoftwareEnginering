@@ -1,0 +1,27 @@
+.\" Manpage for project demo.
+.\" Contact email@address to correct errors or typos.
+.TH man 1 "25 Sep 2020" "2.0" "demo man page"
+.SH NAME
+This program allow user to build and show a quadtress
+.SH SYNOPSIS
+demo
+.SH DESCRIPTION
+This program allow user to build and show a quadtress. User can create,delete or show a
+quadtress.
+.SH OPTIONS
+   Q to quit
+   H to display the menu
+   V to toggle verbose mode
+   N to create a new tree
+   D to delete the current tree
+   P to print items from the tree
+   I to insert new elements in the tree
+   R to remove elements from the tree
+   F to find elments in the tree
+.SH SEE ALSO
+Not yet, maybe in the future
+.SH BUGS
+No bug yet
+.SH AUTHOR
+Paul shen (shenxiaohe1996@gmail.com)
+

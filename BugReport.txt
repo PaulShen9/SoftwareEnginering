@@ -1,0 +1,18 @@
+This is Paul Shen's bug report. In this report, I will talke about two bug I fixed. One is the format bug and the other one is the function error.
+------------------------------------------------------------------------------------------------
+Bug 1: Format Bug.
+Summary: Print out some text which are not required.
+Description: When the user enter an invalid address, accroding to the project requirment, the program should display and only display
+		WARNING: ssss is not a valid address 
+	    But, in the program, it display more then this. It actually display
+		WARNING: ssss is not a valid address 
+		(either just *, or 1-10 digits 0-3)   .
+Fix: Delete the extra line. Location: demo.cpp line:96
+----------------------------------------------------------------------------------------------------------
+
+Bug 2:Function Error
+Summary:The program should not print out an success message in quiet mode but it did.
+Description:When the user enter an valid address and insert it into tree, according to the project requirment, the program should display nothing in the quiet mode but it actually display
+	"Item inserted in quadrant xxx
+Fix:Set a varriable check it is quiet mode or not, then print. Location:demo.cpp line:273
+---------------------------------------------------------------------------------------------

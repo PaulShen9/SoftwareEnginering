@@ -1,0 +1,175 @@
+<html><head><title>CSCI 265 Fall 2020: lab 4</title></head>
+<body>
+<h3>265 Lab 4 exercises</h3>
+See the <a href="../index.html"> project page</a> for submission deadlines and
+late penalties.
+<p>
+It is assumed you are keeping up to date with the lecture and lab slides and videos.
+<p>
+This lab focuses on the use of debuggers and profilers, and the writing of bug reports
+(as applied to our course project).
+<p>
+In lab 4, you'll be:
+<ol>
+<li> pulling recent changes from the instructor's project repository and merging them
+     with your own local repo,
+<li> fixing two bugs from your lab 3 functional defect list,
+<li> conducting an exercise with the gdb debugger and the project source code,
+<li> conducting an exercise use valgrind as a memory checker and fixing another bug
+     in the project source code,
+<li> conducting an exercise with the gprof profiler and the project source code,
+<li> pushing your updated repository.
+</ol>
+<p> Note thate both the debugger and profiler exercises are pretty mechanical here -
+the objective is to ensure you've seen/used the key features of each.  I strongly
+recommend you try to understand what the debugger/profiler is doing at each step,
+such tools can be invaluable down the road.
+
+<p><hr><p><b>Lab instructions</b><p>
+
+<p><hr><p><b>1. pull and merge the instructor's project changes</b>
+<br> Make sure you are in your csci265 project repository, your instructor remote
+is set up correctly, and then pull the instructor's project changes and merge
+them with your project repository.  (If in doubt, this follows the same basic steps as
+the start of lab 2.)
+<p>
+This time, you'll find that the instructor.* files have been eliminated,
+and all the remaining .cpp files have been supplied, and the demo.cpp has
+been tweaked a bit.
+<p>
+You'll also find a file named gentest.sh, used to generate (somewhat) random
+test files for the demo, and a few additional pre-generated test cases (in tests/quiet).
+<p>
+<p> When the merge conflicts (if any) are resolved, do an add and commit for the repo.
+
+<p><hr><p><b>2. Fix two functional bugs</b>
+<br>  For this part, you are to choose two significant bugs from
+your lab 3 functional defect list, analyze the problem and fix them.
+<p>
+Be sure your fixes adhere to project standards. Be particularly careful to update any
+existing comments to match the revised code, use completely separate adds/commits
+for the two bug fixes (don't intermingle changes for both fixes in a single commit,
+and don't intermingle changes from other parts of lab4 into either of your bug fix
+commits), and be sure your commit messages for the two fixes clearly identify which
+defects (from your FunctionalDefect.txt) are being fixed.
+
+<p><hr><p><b>3. complete the following debugging exercise </b>
+<br> First, we need to recompile with the -g option for gdb to work.
+In the command below I'm assuming your makefile has a Warnings variable
+initialized to -Wall -Wextra, so we're overriding that from the command line.
+<br><tt>make clean</tt>
+<br><tt>make Warnings="-g -Wall -Wextra"</tt>
+<br> (Make sure it compiled ok before continuing.)
+<p> We're going to use the script command below to record our debugging session.
+It will record everything you type and everything onscreen while it runs, and
+tends to import a lot of garbage if you open an editor or pager in the window 
+while it's running, so if you need to open another
+tool please do so in a different window.  Note that it doesn't stop recording until
+we run the quit command at the end.
+<p> Please perform the following steps in sequence, and be sure you understand
+what's happening at each point.  (The upcoming quizzes/exam will undoubtedly
+include questions on understanding gdb commands and output.)
+<ol>
+   <p><li> First, let's start the script recording (putting the record in gdb.txt)
+           and then start gdb
+   <br><tt> script -f gdb.txt </tt>
+   <br><tt> gdb gprof </tt>
+   <p><li> Now we'll set a couple of breakpoints, one by line number and one by function name,
+     so we can examine what the program status is when it reaches those points
+   <p> First, set a break point on entry to the printTree method:
+   <br><tt> break src/ItemTree.cpp:ItemTree::printTree </tt>
+   <p>Next, look in your ItemTree.cpp file and find the switch statement
+      inside the insert method.  Look at the line number for the
+      <tt>switch (quad .......</tt>, and set a break point for that line, e.g.
+      if the switch is on line 62 then use:
+   <br><tt> break src/ItemTree.cpp:62 </tt>
+   <p><li> Let's start the program running, when prompted enter N to create a new tree,
+      and then on the next prompt enter I (for insert), your username (e.g. jdoe) as the title,
+      the current time (e.g. 12:23) as the description, and use 1023 and 10311 as the LL and UR
+      coordinates when prompted.
+      <p>
+      Since we set a breakpoint on the switch statement it should stop when we get there.
+      <p>
+      The variable success should be in scope here, so let's print it and set a watch on it,
+      so we're notified if it changes
+      <br><tt> print success </tt>
+      <br><tt> watch success </tt>
+      <p>
+      We can get lists of the current breakpoints using
+      <br><tt> info breakpoints</tt>
+      <p>
+      Try the command 'next' to advance one program instruction (treats function calls
+      like a single instruction) and 'step' to advance one instruction (but goes
+      "inside" functions and continues stepping there)
+      <p>
+      Use the 'backtrace' command to show the current call heirarchy (which method we're in,
+      which one called that, which one called that, etc back to main).
+      <p>
+      Use the 'cont' command to get the program to resume running normally (continue)
+      until it hits the next breakpoint, watchpoint, or prompt.  Watch the program flow
+      and the alterations to the 'success' variable and see if they match your expectations.
+   <p><li> Finally, let's exit the debugger and then exit the script recording
+   <br><tt> quit </tt>
+   <br><tt> exit </tt>
+</ol>
+<p>Be sure to have an add/commit explicitly for your gdb.txt file.
+
+<p><hr><p><b>4. complete the following debugging exercise and fix the issue</b>
+<br> Now we'll use valgrind as a memory checker for the demo program.
+<p> Note that valgrind also requires us to compile using -g (if you're proceeding directly from
+part 3 of the lab to part 4 then you've just done that anyway).
+<p> To run valgrind with memory checking on, use the following
+<br><tt> valgrind -v --leak-check=full bin/demo</tt>
+<br> In the demo program, create a new tree, insert a node, then quit.
+<br> In the output portions produced by valgrind, you'll  notice it mentions
+some bytes of memory were "definitely lost".  This indicates a memory leak in the code,
+some memory was allocated using new but not freed using delete.
+<br> Run the program through valgrind again, but this time insert two items before quitting.
+<br> You should see that twice as many bytes were "definitely lost".  If you insert
+three items you'll see three times as many bytes lost, etc.
+<br> This seems to suggest items (or some portion of them) aren't actually being deleted.
+<p> Your task: find and fix the memory leak.  (It's not a complex one, and I'd recommend
+starting in ItemTree::destroy, since that's where it handles deletion of tree nodes 
+and their contents.)
+
+<p><hr><p><b>5. complete the following profiling exercise </b>
+<br> To use the gprof profiler,  we need to recompile with a different set
+of options, shown below (again with the Warnings variable assumption).
+<br><tt>make clean</tt>
+<br><tt>make Warnings="-pg -no-pie -fno-builtin"</tt>
+<br> (Make sure it compiled ok before continuing.)
+<p> Please perform the following steps in sequence, and be sure you understand
+what's happening at each point.
+<ol>
+   <p><li> First, let's use the gentest.sh to generate a mid-sized test case for
+           the demo program.  This assumes you still have the tests/quiet directory
+           for test cases, otherwise you'll need to take a look in gentest.sh and
+           tweak the testDir variable.
+           <br><tt>gentest.sh 1000</tt>
+           <p>
+           You can double-check the demo works on the created file using
+           <br><tt>bin/demo < tests/quiet/genFile.1000</tt>
+   <p><li> This will have created a file named gmon.out, containing profiling data.
+           We'll use gprof to analyze the data, but first we'll pipe it through grep
+           to filter out a lot of info about underlying libraries
+           <br><tt>gprof bin/demo | grep -v std | grep -v static | grep -v cxx > results.1000</tt>
+           <p>
+           Note we dumped the analysis results into file results.1000, so we can examine the
+           results at our leisure.
+   <p><li> Try the same sequence with a 5000 instead of 1000, and browse through the
+           gprof results.  (Note: the gentest.sh took several minutes to run when I tried
+           this.)
+           <p>
+           Review the gprof lecture notes/video, to be sure you understand the meaning of the
+           table of results (a table like this will certainly crop up in upcoming
+           quiz/exam questions).
+</ol>
+<p>Be sure to have adds/commits explicitly for your results.1000 and .5000
+   files, as well as your tests/quiet/genFile.1000 and .5000.
+
+<p><hr><p><b>5. push your work back to the git server</b>
+<br>(... first make sure you did your git add and git commit for all the steps above)
+<br><tt> git push origin --all</tt>
+
+</body>
+</html>

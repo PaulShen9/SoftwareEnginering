@@ -1,0 +1,79 @@
+*   commit 9aea8e2b2102f88ad851dc3479c187d6cdc5bcd8
+|\  Merge: 18c9bc7 779b4da
+| | Author: Xiaohe Shen <shenx1@stumail.csci.viu.ca>
+| | Date:   Sat Sep 26 00:36:14 2020 -0700
+| | 
+| |      conflict resolved
+| | 
+| * commit 779b4da09acb78315cd59bde50f9d91c6255960a
+| | Author: Xiaohe Shen <shenx1@stumail.csci.viu.ca>
+| | Date:   Sat Sep 26 00:34:50 2020 -0700
+| | 
+| |     try a commit after adding myfiles in lab1 branch
+| | 
+* | commit 18c9bc76d0a91af6f905903a9d44df93529ee09b
+|/  Author: Xiaohe Shen <shenx1@stumail.csci.viu.ca>
+|   Date:   Sat Sep 26 00:35:30 2020 -0700
+|   
+|       add and commit of myfiles in primary branch
+| 
+* commit a73c6bf1287d1446ceffc6ae6b9d1bc09d6c3839
+| Author: Xiaohe Shen <shenx1@stumail.csci.viu.ca>
+| Date:   Sat Sep 26 00:33:34 2020 -0700
+| 
+|     man page comlete for demo
+| 
+* commit aab3efd920d3e65879baf8484ce4e7c7a93018a4
+| Author: Xiaohe Shen <shenx1@stumail.csci.viu.ca>
+| Date:   Fri Sep 18 11:29:37 2020 -0700
+| 
+|      final commit for the lab
+|   
+*   commit 895d4eb591a67b0eca060593869946ef97758aea
+|\  Merge: 9b2238d da416c1
+| | Author: Xiaohe Shen <shenx1@stumail.csci.viu.ca>
+| | Date:   Fri Sep 18 11:28:35 2020 -0700
+| | 
+| |     conflict resolved
+| | 
+| * commit da416c1afb02dea0e9c4f1e9da010bfd1a0ff3f9
+| | Author: Xiaohe Shen <shenx1@stumail.csci.viu.ca>
+| | Date:   Fri Sep 18 11:26:51 2020 -0700
+| | 
+| |     try a commit after adding myfiles in lab1 branch
+| | 
+* | commit 9b2238d54f697b52ed9f4e8d6927be3707bc4902
+|/  Author: Xiaohe Shen <shenx1@stumail.csci.viu.ca>
+|   Date:   Fri Sep 18 11:27:40 2020 -0700
+|   
+|       add and commit of myfiles in primary branch
+| 
+* commit 0f4aaa194ee88ad8889ede8f5a06261ed195307c
+| Author: Xiaohe Shen <shenx1@stumail.csci.viu.ca>
+| Date:   Fri Sep 18 11:25:46 2020 -0700
+| 
+|     man page complete for demo
+| 
+* commit 3b70dcdb89cc65192993b1bcb692d3b03236e6e8
+| Author: Dave Wessels <David.Wessels@viu.ca>
+| Date:   Wed Sep 16 08:28:02 2020 -0700
+| 
+|     another typo fix (in step 6, git branch master --> checkout master)
+| 
+* commit 9ad62fa8d25a16e8e0ea7834af96cd0e69a7735c
+| Author: Dave Wessels <David.Wessels@viu.ca>
+| Date:   Tue Sep 15 08:09:06 2020 -0700
+| 
+|     fixed typo (git add => git commit)
+| 
+* commit 177716b751c124f6cc67efd0468ee1db5e71dd62
+| Author: Dave Wessels <David.Wessels@viu.ca>
+| Date:   Mon Sep 14 12:17:35 2020 -0700
+| 
+|     starting project files
+| 
+* commit aa777bbce880938d500f140783f018c44a0490d0
+  Author: CSCI Administrator <csciadm@csci.viu.ca>
+  Date:   Mon Sep 14 12:12:38 2020 -0700
+  
+      Initial commit of csci265/project repo.

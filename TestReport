@@ -1,0 +1,11 @@
+This is Paul Shen's test report.
+
+First, I have to mentioned that I am still working on the three function so there is no test for
+them.
+
+I used the sample on the website to build my test script.
+I find an issue is that the output file does not contain all the information I want. So, I
+   changed the climite to a huge number in order to get full output
+
+I use a varriable called count to check how many fail cases are there and the script will output
+it at the end of the test.
